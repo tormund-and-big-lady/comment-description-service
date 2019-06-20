@@ -1,4 +1,4 @@
-import React from 'react';
+import React from './node_modules/react';
 import DepartmentItem from '../DepartmentItem/DepartmentItem';
 import Categories from '../Categories/Categories';
 import style from './Departments.css';
