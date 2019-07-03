@@ -4,8 +4,8 @@ import Logo from './logo/logo';
 import Search from './search/search';
 import Login from './login/login';
 import Cart from './cart/cart';
-import Departments from './departments/departments.jsx';
-import SearchResults from './searchresults/searchresults.jsx';
+import Departments from './departments/departments';
+import SearchResults from './searchresults/searchresults';
 import style from './navbar.css';
 
 class NavBar extends React.Component {
