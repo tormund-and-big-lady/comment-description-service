@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Logo.css'
+import style from './logo.css'
 
 const Logo = (props) => (
   <svg viewBox="0, 0, 191, 24" className={style.logo}>

@@ -1,7 +1,7 @@
 import React from 'react';
-import DepartmentItem from '../DepartmentItem/DepartmentItem';
-import Categories from '../Categories/Categories';
-import style from './Departments.css';
+import DepartmentItem from '../departmentitem/departmentitem';
+import Categories from '../categories/categories';
+import style from './departments.css';
 
 const Departments = (props) => (
   // nav reset handler occurs here

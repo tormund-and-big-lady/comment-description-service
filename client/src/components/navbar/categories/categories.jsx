@@ -1,6 +1,6 @@
 import React from 'react';
-import Subcategories from '../Subcategories/Subcategories'
-import style from './Categories.css'
+import Subcategories from '../subcategories/subcategories'
+import style from './categories.css'
 
 const Categories = (props) => {
 

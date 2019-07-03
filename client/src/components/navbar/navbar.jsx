@@ -1,12 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-import Logo from './Logo/Logo';
-import Search from './Search/Search';
-import Login from './Login/Login';
-import Cart from './Cart/Cart';
-import Departments from './Departments/Departments';
-import SearchResults from './SearchResults/SearchResults';
-import style from './NavBar.css';
+import Logo from './logo/logo';
+import Search from './search/search';
+import Login from './login/login';
+import Cart from './cart/cart';
+import Departments from './departments/departments';
+import SearchResults from './searchresults/searchresults';
+import style from './navbar.css';
 
 class NavBar extends React.Component {
   constructor(props) {

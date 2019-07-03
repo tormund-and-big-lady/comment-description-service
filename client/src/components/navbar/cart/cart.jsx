@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Cart.css';
+import style from './cart.css';
 
 const Cart = (props) => (
   <span className={style.cart} onMouseEnter={() => props.handleMouseOver('cartHover')} onMouseLeave={() => props.handleMouseOut('cartHover')}>

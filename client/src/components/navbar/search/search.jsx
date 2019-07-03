@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Search.css';
+import style from './search.css';
 
 const Search = (props) => (
   <span className={style.search} onMouseEnter={() => props.handleMouseOver('searchHover')}>
