@@ -1,5 +1,5 @@
 import React from 'react';
-import DepartmentItem from '../DepartmentItem/DepartmentItem';
+import DepartmentItem from '../departmentitem/departmentitem';
 import Categories from '../categories/categories';
 import style from './departments.css';
 
