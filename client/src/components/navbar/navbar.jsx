@@ -5,7 +5,7 @@ import Search from './search/search';
 import Login from './login/login';
 import Cart from './cart/cart';
 import Departments from './departments/departments';
-import SearchResults from './searchresults/searchresults';
+import SearchResults from './searchResults/searchResults';
 import style from './navbar.css';
 
 class NavBar extends React.Component {

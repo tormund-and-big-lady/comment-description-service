@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './departmentitem.css'
+import style from './departmentItem.css'
 
 const DepartmentItem = (props) => {
 
