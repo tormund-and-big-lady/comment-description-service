@@ -1,5 +1,5 @@
-import React from './node_modules/react';
-import axios from './node_modules/axios';
+import React from 'react';
+import axios from 'axios';
 import Logo from './Logo/Logo';
 import Search from './Search/Search';
 import Login from './Login/Login';

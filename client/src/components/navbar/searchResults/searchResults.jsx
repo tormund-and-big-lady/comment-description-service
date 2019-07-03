@@ -1,4 +1,4 @@
-import React from './node_modules/react';
+import React from 'react';
 import style from './SearchResults.css';
 
 const SearchResults = (props) => {
