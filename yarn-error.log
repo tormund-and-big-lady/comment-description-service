@@ -1,0 +1,75 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.17.0/libexec/bin/yarn.js add node
+
+PATH: 
+  /Users/morganlin/.rvm/gems/ruby-2.6.3/bin:/Users/morganlin/.rvm/gems/ruby-2.6.3@global/bin:/Users/morganlin/.rvm/rubies/ruby-2.6.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/opt/X11/bin:~/.dotnet/tools:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Xamarin Workbooks.app/Contents/SharedSupport/path-bin:/Users/morganlin/.rvm/gems/ruby-2.6.3/bin:/Users/morganlin/.rvm/gems/ruby-2.6.3@global/bin:/Users/morganlin/.rvm/rubies/ruby-2.6.3/bin:/Users/morganlin/.rvm/bin
+
+Yarn version: 
+  1.17.0
+
+Node version: 
+  10.15.3
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EACCES: permission denied, mkdir '/Users/morganlin/Desktop/workspace/tormund-and-big-lady/fec/nav-bar-service/node_modules/are-we-there-yet'
+
+npm manifest: 
+  {
+    "name": "nav-bar",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "engines": {
+      "node": "10.15.3"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node ./server/index.js",
+      "build": "webpack -p",
+      "seed": "node ./database/seed.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/tormund-and-big-lady/nav-bar-service.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/tormund-and-big-lady/nav-bar-service/issues"
+    },
+    "homepage": "https://github.com/tormund-and-big-lady/nav-bar-service#readme",
+    "devDependencies": {
+      "@babel/cli": "^7.4.4",
+      "@babel/core": "^7.4.4",
+      "@babel/preset-env": "^7.4.4",
+      "@babel/preset-react": "^7.0.0",
+      "babel-loader": "^8.0.6",
+      "webpack": "^4.31.0",
+      "webpack-cli": "^3.3.2",
+      "webpack-combine-loaders": "^2.0.4"
+    },
+    "dependencies": {
+      "axios": "^0.18.0",
+      "css-loader": "^2.1.1",
+      "dotenv": "^8.0.0",
+      "express": "^4.16.4",
+      "file-loader": "^3.0.1",
+      "mongoose": "^5.5.8",
+      "morgan": "^1.9.1",
+      "nodemon": "^1.19.1",
+      "path": "^0.12.7",
+      "react": "^16.8.6",
+      "react-dom": "^16.8.6",
+      "style-loader": "^0.23.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
