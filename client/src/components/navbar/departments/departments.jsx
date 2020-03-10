@@ -1,6 +1,6 @@
 import React from 'react';
 import DepartmentItem from '../departmentItem/departmentItem';
-import Categories from '../categories/categories';
+import Categories from '../categories/categories.component';
 import style from './departments.css';
 
 const Departments = (props) => (

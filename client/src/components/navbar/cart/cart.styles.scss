@@ -1,0 +1,23 @@
+
+.cart {
+  .bag {
+    fill: none;
+    stroke: #393939;
+    stroke-miterlimit: 10;
+    position: relative;
+    
+    .bag-hook {
+      stroke-miterlimit: 10;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+
+  .bag-number {
+    position: absolute;
+    font-size: 85%;
+    top: 68px;
+    right: 66px;
+  }
+}
+
