@@ -16,7 +16,7 @@ const Categories = ({ categories }) => (
             {subcategories.map((subcategory, idx) => {
               const { name } = subcategory;
               return (
-                <li className='subcategory-name' key={idx}>{name}</li>
+                <li className='subcategory-name' key={idx}><span>{name}</span></li>
               )
             })}
           </ul>

@@ -3,18 +3,10 @@
   flex-direction: column;
   flex-flow: wrap;
   justify-content: space-between;
-  // width: 50%;
   margin: 0 auto;
-  // padding: 5px 0 0 0;
-  // height: 100px;
-  // background-color: #eee;
 
   .category {
     cursor: pointer;
-
-    .category-name {
-      // margin-bottom: -5px;
-    }
 
     .subcategories {
       list-style: none;
@@ -25,7 +17,7 @@
         margin: 10px 0;
         border-bottom: 2px solid #fff;
 
-        &:hover {
+        & span:hover {
           border-bottom: 2px solid #909695;
           padding-bottom: 0px;
         }
