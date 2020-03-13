@@ -26,6 +26,8 @@ export default class Navbar extends Component {
 
     this.retrieveData = this.retrieveData.bind(this);
     this.getCategories = this.getCategories.bind(this);
+    this.handleAddClass = this.handleAddClass.bind(this);
+    this.handleRemoveClass = this.handleRemoveClass.bind(this);
   }
 
   componentDidMount() {
@@ -35,7 +37,7 @@ export default class Navbar extends Component {
   retrieveData() {
     axios
       .get('/navbar/navs')
-      .then(({ data }) => this.setState({ departments: data }, () => console.log(this.state.departments)))
+      .then(({ data }) => this.setState({ departments: data }))
       .catch(err => console.log(err))
   }
 
@@ -45,14 +47,49 @@ export default class Navbar extends Component {
         categories: this.state.departments[idx].categories, 
         departmentSelected: idx,
         departmentClicked: true
-      })
+      }, () => this.handleAddClass())
     } else {
       this.setState({
         categories: [],
         departmentSelected: null,
         departmentClicked: false
-      })
+      }, () => this.handleRemoveClass())
     }
+  }
+
+  handleAddClass() {
+    let productDescription = document.getElementById('productDescription');
+    // let morelooks = document.getElementById('morelooks');
+    // let reviews = document.getElementById('reviews');
+
+    if (productDescription) {
+      productDescription.classList.add('overlay');
+    }
+
+    // if (morelooks) {
+    //   morelooks.classList.add('overlay');
+    // }
+
+    // if (reviews) {
+    //   reviews.classList.add('overlay');
+    }
+
+  handleRemoveClass() {
+    let productDescription = document.getElementById('productDescription');
+    // let morelooks = document.getElementById('morelooks');
+    // let reviews = document.getElementById('reviews');
+
+    if (productDescription && productDescription.className) {
+      productDescription.classList.remove(productDescription.className);
+    }
+
+    // if (morelooks && morelooks.className) {
+    //   morelooks.classList.remove(morelooks.className);
+    // }
+
+    // if (reviews && reviews.className) {
+    //   reviews.classList.remove(reviews.className);
+    // }
   }
 
   render() {

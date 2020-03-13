@@ -3,7 +3,11 @@
   flex-direction: column;
   flex-flow: wrap;
   justify-content: space-between;
-  margin: 0 auto;
+  position: absolute;
+  width: 100%;
+  background-color: #ffffffd9;
+  z-index: 90;
+  padding: 15px;
 
   .category {
     cursor: pointer;
@@ -15,7 +19,7 @@
 
       .subcategory-name {
         margin: 10px 0;
-        border-bottom: 2px solid #fff;
+        border-bottom: 2px solid #ffffff00;
 
         & span:hover {
           border-bottom: 2px solid #909695;
