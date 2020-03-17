@@ -3,14 +3,14 @@ import React from 'react';
 import './categories.styles.scss';
 
 const Categories = ({ categories }) => (
-  <div className='categories'>
+  <div className={`categories ${categories.length ? 'show' : ''}`}>
     {categories.map((category, idx) => {
       const { name, subcategories } = category;
       return (
         <div className='category' key={idx}>
-          <h5 className='category-name'>
+          <span className='category-name'>
             {name}
-          </h5>
+          </span>
 
           <ul className='subcategories'>
             {subcategories.map((subcategory, idx) => {

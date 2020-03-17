@@ -21,13 +21,17 @@ export default class Navbar extends Component {
       departments: [],
       categories: [],
       departmentSelected: null,
-      departmentClicked: false
+      departmentClicked: false,
+      search: false,
+      login: false,
+      cart: false
     }
 
     this.retrieveData = this.retrieveData.bind(this);
     this.getCategories = this.getCategories.bind(this);
     this.handleAddClass = this.handleAddClass.bind(this);
     this.handleRemoveClass = this.handleRemoveClass.bind(this);
+    this.handleMouseOver = this.handleMouseOver.bind(this);
   }
 
   componentDidMount() {
@@ -55,6 +59,12 @@ export default class Navbar extends Component {
         departmentClicked: false
       }, () => this.handleRemoveClass())
     }
+  }
+
+  handleMouseOver(component) {
+    this.setState(prevState => ({
+      [component]: !prevState[component]
+    }), () => console.log(this.state))
   }
 
   handleAddClass() {
@@ -99,16 +109,16 @@ export default class Navbar extends Component {
           <Logo />
           <div className='header'>
             <div className='header-item'>
-              <Search />
-              {/* <SearchForm /> */}
+              <Search handleMouseOver={this.handleMouseOver} />
+              <SearchForm handleMouseOver={this.handleMouseOver} search={this.state.search} />
             </div>
-            <div className='header-item'>
+            <div className='header-item login' onMouseEnter={() => this.handleMouseOver('login')} onMouseLeave={() => this.handleMouseOver('login')}>
               <Login />
-              {/* <LoginForm /> */}
+              <LoginForm login={this.state.login} />
             </div>
-            <div className='header-item'>
+            <div className='header-item' onMouseEnter={() => this.handleMouseOver('cart')} onMouseLeave={() => this.handleMouseOver('cart')}>
               <Cart />
-              {/* <CartForm /> */}
+              <CartForm cart={this.state.cart} />
             </div>
           </div>
         </div>
@@ -118,7 +128,7 @@ export default class Navbar extends Component {
           departmentSelected={this.state.departmentSelected}
           departmentClicked={this.state.departmentClicked}
         />
-        {this.state.categories ? <Categories categories={this.state.categories}/> : null}
+        <Categories categories={this.state.categories}/>
       </div>
     )
   }

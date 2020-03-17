@@ -2,8 +2,8 @@ import React from 'react';
 
 import './cart-form.styles.scss';
 
-const CartForm = props => (
-  <div className='cart-form'>
+const CartForm = ({ cart }) => (
+  <div className={`cart-form ${cart ? 'show' : ''}`}>
     <div className='box'>
       <div className='box-item' />
     </div>

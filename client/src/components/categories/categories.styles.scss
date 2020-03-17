@@ -1,3 +1,8 @@
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
 .categories {
   display: flex;
   flex-direction: column;
@@ -6,11 +11,33 @@
   position: absolute;
   width: 100%;
   background-color: #ffffffd9;
-  z-index: 90;
-  padding: 15px;
+  z-index: 20;
+  margin-top: -15px;
+  padding: 25px 15px 15px 15px;
+  left: -15px;
+  height: 0;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+
+  &.show {
+    height: 475px;
+    opacity: 1;
+    transition: opacity 1.2s, height 0.3s ease-in-out;
+  }
 
   .category {
     cursor: pointer;
+
+    .category-name {
+      font-family: 'Brandon Text Bold';
+      font-size: 1.0rem;
+      border-bottom: 2px solid #ffffff00;
+
+      &:hover {
+        border-bottom: 2px solid #909695;
+        padding-bottom: 0px;
+      }
+    }
 
     .subcategories {
       list-style: none;

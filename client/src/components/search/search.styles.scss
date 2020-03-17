@@ -1,8 +1,16 @@
 .search {
-  .icon {
-    fill: none;
-    stroke: #393939;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  display: flex;
+  align-items: center;
+
+  .search-item {
+    margin: 0 2px;
+
+    .icon {
+      fill: none;
+      stroke: #393939;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
   }
+
 }

@@ -5,9 +5,18 @@
   top: 50px;
   right: -120px;
   padding: 10px;
-  z-index: 6;
+  z-index: 25;
   position: absolute;
   cursor: default;
+  opacity: 0; 
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.4s;
+
+  &.show {
+    opacity: 1; 
+    visibility: visible;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
 
   .box {
     position: absolute;
@@ -83,9 +92,49 @@
           }
         }
       }
-
-
     }
+  }
+
+  .searchResults {
+    color: #333;
+    font-family: 'Brandon Text';
+    font-size: 82%;
+    font-weight: 300;
+    line-height: 1.4;
+    list-style-type: none;
+    margin: 0 25px 0 25px;
+    padding: 0;
+  }
+  
+  .searchResults strong {
+    font-family: 'Brandon Text Bold';
+  }
+  
+  .searchResults li {
+    margin: 10px 0 10px 0;
+  }
+  
+  .featuredResult {
+    color: #333;
+    font-family: 'Brandon Text Bold';
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 40px 55px;
+  }
+  
+  .imgResultDiv ul {
+    list-style: none;
+    margin: 0 auto;
+    padding-bottom: 25px;
+  }
+  
+  .imgResultDiv ul li {
+    display: inline;
+    padding-right: 20px;
+  }
+  
+  .imgResult {
+    width: 90px;
   }
 
 }

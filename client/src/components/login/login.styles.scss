@@ -1,8 +1,16 @@
 .login {
-  .arrow-down {
-    fill: none;
-    stroke: #737373;
-    stroke-linecap: round;
-    stroke-miterlimit: 10;
+  display: flex;
+  align-items: center;
+  
+  .login-item {
+    margin: 0 2px;
+
+    .arrow-down {
+      fill: none;
+      stroke: #737373;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
   }
+
 }

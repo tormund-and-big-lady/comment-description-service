@@ -2,8 +2,8 @@ import React from 'react';
 
 import './login-form.styles.scss';
 
-const LoginForm = props => (
-  <div className='account-info'>
+const LoginForm = ({ login }) => (
+  <div className={`account-info ${login ? 'show' : ''}`}>
     <div className='box'>
       <div className='box-arrow'/>
     </div>
