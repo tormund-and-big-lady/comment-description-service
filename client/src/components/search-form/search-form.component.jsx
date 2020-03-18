@@ -72,7 +72,7 @@ export default class SearchForm extends Component {
         </div>
         {/* collective search results conditional render */}
         {this.state.results.map((result, index) => 
-            <ul className='search-results'>
+            <ul className='search-result'>
               <SearchResults 
                 key={index} 
                 index={index} 
