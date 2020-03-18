@@ -10,7 +10,6 @@ import CartForm from './components/cart-form/cart-form.component';
 import Departments from './components/departments/departments.component';
 import Categories from './components/categories/categories.component';
 
-
 import './Navbar.scss';
 
 export default class Navbar extends Component {
@@ -22,16 +21,20 @@ export default class Navbar extends Component {
       categories: [],
       departmentSelected: null,
       departmentClicked: false,
-      search: false,
+      search: {
+        show: false,
+        trigger: false
+      },
       login: false,
       cart: false
     }
 
     this.retrieveData = this.retrieveData.bind(this);
     this.getCategories = this.getCategories.bind(this);
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
     this.handleAddClass = this.handleAddClass.bind(this);
     this.handleRemoveClass = this.handleRemoveClass.bind(this);
-    this.handleMouseOver = this.handleMouseOver.bind(this);
   }
 
   componentDidMount() {
@@ -64,42 +67,60 @@ export default class Navbar extends Component {
   handleMouseOver(component) {
     this.setState(prevState => ({
       [component]: !prevState[component]
-    }), () => console.log(this.state))
+    }))
+  }
+
+  handleSearch(trigger) {
+    if (trigger) {
+      this.setState({
+        search: {
+          show: false,
+          trigger: false
+        }
+      })
+    } else {
+      this.setState({
+        search: {
+          show: true
+        }
+      })
+    }
   }
 
   handleAddClass() {
     let productDescription = document.getElementById('productDescription');
-    // let morelooks = document.getElementById('morelooks');
-    // let reviews = document.getElementById('reviews');
+    let morelooks = document.getElementById('morelooks');
+    let reviews = document.getElementById('reviews');
 
     if (productDescription) {
       productDescription.classList.add('overlay');
     }
 
-    // if (morelooks) {
-    //   morelooks.classList.add('overlay');
-    // }
-
-    // if (reviews) {
-    //   reviews.classList.add('overlay');
+    if (morelooks) {
+      morelooks.classList.add('overlay');
     }
+
+    if (reviews) {
+      reviews.classList.add('overlay');
+    }
+  }
 
   handleRemoveClass() {
     let productDescription = document.getElementById('productDescription');
-    // let morelooks = document.getElementById('morelooks');
-    // let reviews = document.getElementById('reviews');
+    let morelooks = document.getElementById('morelooks');
+    let reviews = document.getElementById('reviews');
 
     if (productDescription && productDescription.className) {
       productDescription.classList.remove(productDescription.className);
     }
 
-    // if (morelooks && morelooks.className) {
-    //   morelooks.classList.remove(morelooks.className);
-    // }
+    if (morelooks && morelooks.className) {
+      morelooks.classList.remove(morelooks.className);
+    }
 
-    // if (reviews && reviews.className) {
-    //   reviews.classList.remove(reviews.className);
-    // }
+    if (reviews && reviews.className) {
+      reviews.classList.remove(reviews.className);
+    }
   }
 
   render() {
@@ -109,14 +130,25 @@ export default class Navbar extends Component {
           <Logo />
           <div className='header'>
             <div className='header-item'>
-              <Search handleMouseOver={this.handleMouseOver} />
-              <SearchForm handleMouseOver={this.handleMouseOver} search={this.state.search} />
+              <Search handleSearch={this.handleSearch} />
+              <SearchForm 
+                handleSearch={this.handleSearch} 
+                search={this.state.search} 
+              />
             </div>
-            <div className='header-item login' onMouseEnter={() => this.handleMouseOver('login')} onMouseLeave={() => this.handleMouseOver('login')}>
+            <div 
+              className='header-item login' 
+              onMouseEnter={() => this.handleMouseOver('login')}
+              onMouseLeave={() => this.handleMouseOver('login')}
+            >
               <Login />
               <LoginForm login={this.state.login} />
             </div>
-            <div className='header-item' onMouseEnter={() => this.handleMouseOver('cart')} onMouseLeave={() => this.handleMouseOver('cart')}>
+            <div 
+              className='header-item' 
+              onMouseEnter={() => this.handleMouseOver('cart')}
+              onMouseLeave={() => this.handleMouseOver('cart')}
+            >
               <Cart />
               <CartForm cart={this.state.cart} />
             </div>
