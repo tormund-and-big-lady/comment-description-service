@@ -40,13 +40,18 @@
   }
 
   .login-btn {
-    background: #000;
-    border-color: #000;
+    background-color: #000;
+    border: none;
     color: #fff;
     font-weight: 400;
     padding: 10px 85px;
     margin: 0 auto;
     cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background: #393939;
+    }
   }
 
   .links {
@@ -60,9 +65,11 @@
     & li {
       margin: 15px 0 0 0;
 
-      & span:hover {
-        border-bottom: 2px solid #909695;
-        padding-bottom: 0px;
+      &:hover {
+        & span {
+          border-bottom: 2px solid #909695;
+          padding-bottom: 0px;
+        }
       }
     }
   }
