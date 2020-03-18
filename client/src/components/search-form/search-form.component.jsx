@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import SearchResults from './searchResults';
+import SearchResults from './search-results';
 
 import './search-form.styles.scss';
 
@@ -49,7 +49,7 @@ export default class SearchForm extends Component {
 
   render() {
     return (
-      <div className={`search-form ${this.props.search ? 'show' : ''}`}>
+      <div className={`search-form ${this.props.search.show ? 'show' : ''}`}>
         <div className='box'>
           <div className='box-arrow' />
         </div>
@@ -60,10 +60,10 @@ export default class SearchForm extends Component {
           <div className='search-box-item'>
             <div className='item-clear'>
               {
-                this.state.search ? <span onClick={() => this.setState({ search: '' })}>Clear</span> : ''
+                this.state.search ? <span onClick={() => this.setState({ search: '', results: [] })}>Clear</span> : ''
               }
             </div>
-            <div className='item-clear' onClick={() => this.props.handleMouseOver('search')}>
+            <div className='item-clear' onClick={() => this.props.handleSearch(true)}>
               <svg height='10' width='10' className='search-close'>
                 <path d='M2 2l8 8m0-8l-8 8'></path>
               </svg>
@@ -71,41 +71,41 @@ export default class SearchForm extends Component {
           </div>
         </div>
         {/* collective search results conditional render */}
-        <ul className='searchResults'>
-          {this.state.results.map((result, index) => 
-            <SearchResults 
-              key={index} 
-              index={index} 
-              result={result} 
-              search={this.state.search} 
-              handleMouseOver={this.handleMouseOver} 
-            />)
-          }
-        </ul>
+        {this.state.results.map((result, index) => 
+            <ul className='search-results'>
+              <SearchResults 
+                key={index} 
+                index={index} 
+                result={result} 
+                search={this.state.search}
+                handleMouseOver={this.handleMouseOver} 
+              />
+            </ul>
+          )
+        }
 
         {/* additional assets i.e. images render */}
         {
           this.state.results.length ?
-          <div>
-            <div className='featuredResult'>
-              <span>
-                <strong>Featured results for "{this.state.results[this.state.resultHoverIdx].keyword}"</strong>
-              </span>
-            </div>
-            <div className='imgResultDiv'>
-              <ul>
-                {
-                  this.state.results[this.state.resultHoverIdx].products.map((product, index) =>
-                  <li key={index} onMouseEnter={() => this.handleMouseOver(index)} onMouseOut={() => this.handleMouseOut(index)}>
-                    {
-                      (this.state[index] && product.images.length > 1) ? <img className='imgResult' src={product.images[1].imageUrl} /> 
-                      : <img className='imgResult' src={product.images[0].imageUrl} />
-                    }
-                  </li>)
-                }
-              </ul>
-            </div>
-          </div> 
+          <>
+            <span className='featured-result'>
+              <strong>Featured results for "{this.state.results[this.state.resultHoverIdx].keyword}"</strong>
+            </span>
+            <ul className='img-result'>
+              {
+                this.state.results[this.state.resultHoverIdx].products.map((product, index) =>
+                <li 
+                  key={index} 
+                  onMouseEnter={() => this.handleMouseOver(index)} 
+                  onMouseOut={() => this.handleMouseOut(index)}>
+                  {
+                    (this.state[index] && product.images.length > 1) ? <img className='img-result' src={product.images[1].imageUrl} /> 
+                    : <img className='img-result' src={product.images[0].imageUrl} />
+                  }
+                </li>)
+              }
+            </ul>
+          </> 
           : ''
         }
       </div>
