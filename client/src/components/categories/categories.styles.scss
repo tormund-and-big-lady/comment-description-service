@@ -1,20 +1,15 @@
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
 .categories {
   display: flex;
-  flex-direction: column;
-  flex-flow: wrap;
-  justify-content: space-between;
+  flex-flow: column wrap;
+  align-items: flex-start;
   position: absolute;
-  width: 100%;
+  width: 75%;
   background-color: #ffffffd9;
   z-index: 20;
-  margin-top: -15px;
+  margin: -15px auto 0 auto;
   padding: 25px 15px 15px 15px;
-  left: -15px;
+  left: 15px;
+  right: 0;
   height: 0;
   opacity: 0;
   transition: all 0.2s ease-in-out;
@@ -27,6 +22,7 @@
 
   .category {
     cursor: pointer;
+    margin-bottom: 15px;
 
     .category-name {
       font-family: 'Brandon Text Bold';
