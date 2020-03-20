@@ -6,7 +6,7 @@ const Departments = ({ departments, getCategories, departmentSelected, departmen
   <ul styleName='departments'>
     {departments.map((department, idx) => (
       <li 
-        styleName={`department ${departmentSelected === idx ? 'selected' : ''}`} 
+        styleName={`department ${departmentSelected === idx ? 'selected' : ''} ${departmentClicked && departmentSelected !== idx ? 'standby' : ''}`} 
         key={idx} 
         onClick={() => getCategories(idx, !departmentClicked)}
         onMouseOver={() => departmentClicked ? getCategories(idx, true) : null}

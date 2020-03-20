@@ -9,13 +9,19 @@
     line-height: 1.4;
     border-bottom: 2px solid #fff;
     cursor: pointer;
+    transition: opacity 0.3s;
     
     &:hover {
       border-bottom: 2px solid #333;
     }
-  }
 
-  .selected {
-    border-bottom: 2px solid #333;
+    &.selected {
+      border-bottom: 2px solid #333;
+    }
+
+    &.standby {
+      opacity: 0.4;
+      transition: opacity 0.3s;
+    }
   }
 }
