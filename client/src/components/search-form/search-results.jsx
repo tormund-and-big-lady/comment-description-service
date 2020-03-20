@@ -9,7 +9,7 @@ const SearchResults = ({ index, result, search, handleMouseOver}) => {
   let searchIdxLen = searchIdx + searchLen;
 
   return (
-    <li className='result'>
+    <li styleName='result'>
       <span onMouseEnter={() => handleMouseOver('resultHoverIdx', index)}>
         {result.keyword.slice(0, searchIdx)}<strong>{result.keyword.slice(searchIdx, searchIdxLen)}</strong>{result.keyword.slice(searchIdxLen)}
       </span>

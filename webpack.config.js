@@ -1,7 +1,6 @@
 const path = require('path');
 const SRC_DIR = path.join(__dirname, '/client/src');
 const DIST_DIR = path.join(__dirname, '/client/dist');
-const combinedLoaders = require('webpack-combine-loaders')
 
 module.exports = {
   mode: 'development',
@@ -19,34 +18,34 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
+          plugins: [
+            ["react-css-modules", {
+              "filetypes": {
+                ".scss": {
+                  "syntax": "postcss-scss"
+                }
+              }
+            }]
+          ]
         },
-      },
-      {
-        test: /\.css$/,
-        loader: combinedLoaders([
-          {
-            loader: 'style-loader'
-          }, {
-            loader: 'css-loader',
-            query: {
-              modules: true,
-              localIdentName: '[name]__[loader]__[hash:base64:5]'
-            }
-          }
-        ])
       },
       {
         rules: [
           {
             test: /\.s[ac]ss$/i,
             use: [
-              // Creates `style` nodes from JS strings
               'style-loader',
-              // Translates CSS into CommonJS
-              'css-loader',
-              // Compiles Sass to CSS
-              'sass-loader',
-            ],
+              {
+                loader: 'css-loader',
+                options: {
+                  importLoaders: 1,    
+                  modules: true,
+                  sourceMap: true,
+                  localIdentName: '[path]___[name]__[local]___[hash:base64:5]'
+                }
+              },
+              'sass-loader'
+            ]
           },
         ],
       },

@@ -110,26 +110,26 @@ export default class Navbar extends Component {
     let morelooks = document.getElementById('morelooks');
     let reviews = document.getElementById('reviews');
 
-    if (productDescription && productDescription.className) {
-      productDescription.classList.remove(productDescription.className);
+    if (productDescription && productDescription.styleName) {
+      productDescription.classList.remove(productDescription.styleName);
     }
 
-    if (morelooks && morelooks.className) {
-      morelooks.classList.remove(morelooks.className);
+    if (morelooks && morelooks.styleName) {
+      morelooks.classList.remove(morelooks.styleName);
     }
 
-    if (reviews && reviews.className) {
-      reviews.classList.remove(reviews.className);
+    if (reviews && reviews.styleName) {
+      reviews.classList.remove(reviews.styleName);
     }
   }
 
   render() {
     return (
-      <div className='nav-bar'>
-        <div className='logo-header'>
+      <div styleName='nav-bar'>
+        <div styleName='logo-header'>
           <Logo />
-          <div className='header'>
-            <div className='header-item'>
+          <div styleName='header'>
+            <div styleName='header-item'>
               <Search handleSearch={this.handleSearch} />
               <SearchForm 
                 handleSearch={this.handleSearch} 
@@ -137,7 +137,7 @@ export default class Navbar extends Component {
               />
             </div>
             <div 
-              className='header-item login' 
+              styleName='header-item' 
               onMouseEnter={() => this.handleMouseOver('login')}
               onMouseLeave={() => this.handleMouseOver('login')}
             >
@@ -145,7 +145,7 @@ export default class Navbar extends Component {
               <LoginForm login={this.state.login} />
             </div>
             <div 
-              className='header-item' 
+              styleName='header-item' 
               onMouseEnter={() => this.handleMouseOver('cart')}
               onMouseLeave={() => this.handleMouseOver('cart')}
             >

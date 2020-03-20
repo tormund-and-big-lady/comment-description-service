@@ -49,22 +49,22 @@ export default class SearchForm extends Component {
 
   render() {
     return (
-      <div className={`search-form ${this.props.search.show ? 'show' : ''}`}>
-        <div className='box'>
-          <div className='box-arrow' />
+      <div styleName={`search-form ${this.props.search.show ? 'show' : ''}`}>
+        <div styleName='box'>
+          <div styleName='box-arrow' />
         </div>
-        <div className='search-box'>
-          <div className='search-box-item'>
+        <div styleName='search-box'>
+          <div styleName='search-box-item'>
             <input type='text' placeholder='What can we help you find?' value={this.state.search} onChange={this.handleSearchResults}/>
           </div>
-          <div className='search-box-item'>
-            <div className='item-clear'>
+          <div styleName='search-box-item'>
+            <div styleName='item-clear'>
               {
                 this.state.search ? <span onClick={() => this.setState({ search: '', results: [] })}>Clear</span> : ''
               }
             </div>
-            <div className='item-clear' onClick={() => this.props.handleSearch(true)}>
-              <svg height='10' width='10' className='search-close'>
+            <div styleName='item-clear' onClick={() => this.props.handleSearch(true)}>
+              <svg height='10' width='10' styleName='search-close'>
                 <path d='M2 2l8 8m0-8l-8 8'></path>
               </svg>
             </div>
@@ -72,7 +72,7 @@ export default class SearchForm extends Component {
         </div>
         {/* collective search results conditional render */}
         {this.state.results.map((result, index) => 
-            <ul className='search-result'>
+            <ul styleName='search-result'>
               <SearchResults 
                 key={index} 
                 index={index} 
@@ -88,10 +88,10 @@ export default class SearchForm extends Component {
         {
           this.state.results.length ?
           <>
-            <span className='featured-result'>
+            <span styleName='featured-result'>
               <strong>Featured results for "{this.state.results[this.state.resultHoverIdx].keyword}"</strong>
             </span>
-            <ul className='img-result'>
+            <ul styleName='img-result'>
               {
                 this.state.results[this.state.resultHoverIdx].products.map((product, index) =>
                 <li 
@@ -99,8 +99,8 @@ export default class SearchForm extends Component {
                   onMouseEnter={() => this.handleMouseOver(index)} 
                   onMouseOut={() => this.handleMouseOut(index)}>
                   {
-                    (this.state[index] && product.images.length > 1) ? <img className='img-result' src={product.images[1].imageUrl} /> 
-                    : <img className='img-result' src={product.images[0].imageUrl} />
+                    (this.state[index] && product.images.length > 1) ? <img styleName='img-result' src={product.images[1].imageUrl} /> 
+                    : <img styleName='img-result' src={product.images[0].imageUrl} />
                   }
                 </li>)
               }
