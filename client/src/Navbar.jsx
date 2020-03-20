@@ -10,7 +10,7 @@ import CartForm from './components/cart-form/cart-form.component';
 import Departments from './components/departments/departments.component';
 import Categories from './components/categories/categories.component';
 
-import './Navbar.scss';
+import styles from './Navbar.scss';
 
 export default class Navbar extends Component {
   constructor() {
@@ -33,8 +33,7 @@ export default class Navbar extends Component {
     this.getCategories = this.getCategories.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-    this.handleAddClass = this.handleAddClass.bind(this);
-    this.handleRemoveClass = this.handleRemoveClass.bind(this);
+    this.handleOverlay = this.handleOverlay.bind(this);
   }
 
   componentDidMount() {
@@ -54,13 +53,13 @@ export default class Navbar extends Component {
         categories: this.state.departments[idx].categories, 
         departmentSelected: idx,
         departmentClicked: true
-      }, () => this.handleAddClass())
+      }, () => this.handleOverlay(clicked))
     } else {
       this.setState({
         categories: [],
         departmentSelected: null,
         departmentClicked: false
-      }, () => this.handleRemoveClass())
+      }, () => this.handleOverlay())
     }
   }
 
@@ -87,40 +86,19 @@ export default class Navbar extends Component {
     }
   }
 
-  handleAddClass() {
+  handleOverlay(clicked) {
     let productDescription = document.getElementById('productDescription');
     let morelooks = document.getElementById('morelooks');
     let reviews = document.getElementById('reviews');
+    let arr = [productDescription, morelooks, reviews];
 
-    if (productDescription) {
-      productDescription.classList.add('overlay');
-    }
-
-    if (morelooks) {
-      morelooks.classList.add('overlay');
-    }
-
-    if (reviews) {
-      reviews.classList.add('overlay');
-    }
-  }
-
-  handleRemoveClass() {
-    let productDescription = document.getElementById('productDescription');
-    let morelooks = document.getElementById('morelooks');
-    let reviews = document.getElementById('reviews');
-
-    if (productDescription && productDescription.styleName) {
-      productDescription.classList.remove(productDescription.styleName);
-    }
-
-    if (morelooks && morelooks.styleName) {
-      morelooks.classList.remove(morelooks.styleName);
-    }
-
-    if (reviews && reviews.styleName) {
-      reviews.classList.remove(reviews.styleName);
-    }
+    arr.forEach(elem => {
+      if (elem && clicked) {
+        elem.classList.add(styles['overlay']);
+      } else if (elem && !clicked) {
+        elem.classList.remove(elem.classList);
+      }
+    });
   }
 
   render() {
