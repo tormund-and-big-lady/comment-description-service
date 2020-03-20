@@ -31,11 +31,12 @@
     .category-name {
       font-family: 'Brandon Text Bold';
       font-size: 1.0rem;
-      border-bottom: 2px solid #ffffff00;
+      border-bottom: 2px solid transparent;
+      text-decoration: none;
 
       &:hover {
         border-bottom: 2px solid #909695;
-        padding-bottom: 0px;
+        transition: border-bottom 0.5s;
       }
     }
 
@@ -46,12 +47,17 @@
 
       .subcategory-name {
         margin: 10px 0;
-        border-bottom: 2px solid #ffffff00;
 
-        & span:hover {
-          border-bottom: 2px solid #909695;
-          padding-bottom: 0px;
+        & span {
+          border-bottom: 2px solid transparent;
+          text-decoration: none;
+
+          &:hover {
+            border-bottom: 2px solid #909695;
+            transition: border-bottom 0.5s;
+          }
         }
+        
       }
     }
   }
