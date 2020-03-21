@@ -1,14 +1,32 @@
 const path = require('path');
 const SRC_DIR = path.join(__dirname, '/client/src');
 const DIST_DIR = path.join(__dirname, '/client/dist');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: `${SRC_DIR}/index.jsx`,
   output: {
     filename: 'bundle.js',
     path: DIST_DIR,
   },
+  plugins: [
+    new CompressionPlugin({
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+    new CompressionPlugin({
+      filename: '[path].br[query]',
+      algorithm: 'brotliCompress',
+      test: /\.(js|css|html|svg)$/,
+      compressionOptions: { level: 11 },
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+  ],
   module: {
     rules: [
       {
@@ -25,7 +43,7 @@ module.exports = {
                   "syntax": "postcss-scss"
                 }
               }
-            }]
+            }],
           ]
         },
       },
