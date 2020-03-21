@@ -13,8 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('*.js', function (req, res, next) {
-  req.url = req.url + '.gz';
-  res.set('Content-Encoding', 'gzip');
+  req.url = req.url + '.br';
+  res.set('Content-Encoding', 'br');
   res.set('Content-Type', 'text/javascript');
   next();
 });
