@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ClickOutHandler from 'react-onclickout';
+
 import Logo from './components/logo/logo.component';
 import Search from './components/search/search.component';
 import SearchForm from './components/search-form/search-form.component';
@@ -34,6 +36,7 @@ export default class Navbar extends Component {
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleOverlay = this.handleOverlay.bind(this);
+    this.onClickOut = this.onClickOut.bind(this);
   }
 
   componentDidMount() {
@@ -86,6 +89,12 @@ export default class Navbar extends Component {
     }
   }
 
+  onClickOut() {
+    if (this.state.departmentClicked) {
+      this.getCategories(null, !this.state.departmentClicked)
+    }
+  }
+
   handleOverlay(clicked) {
     let productDescription = document.getElementById('productDescription');
     let morelooks = document.getElementById('morelooks');
@@ -132,13 +141,15 @@ export default class Navbar extends Component {
             </div>
           </div>
         </div>
-        <Departments 
-          departments={this.state.departments} 
-          getCategories={this.getCategories}
-          departmentSelected={this.state.departmentSelected}
-          departmentClicked={this.state.departmentClicked}
-        />
-        <Categories categories={this.state.categories}/>
+        <ClickOutHandler onClickOut={this.onClickOut}>
+          <Departments 
+            departments={this.state.departments} 
+            getCategories={this.getCategories}
+            departmentSelected={this.state.departmentSelected}
+            departmentClicked={this.state.departmentClicked}
+          />
+          <Categories categories={this.state.categories}/>
+        </ClickOutHandler>
       </div>
     )
   }
