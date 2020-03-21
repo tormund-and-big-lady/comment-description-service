@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import SearchResults from './search-results';
+import SearchResults from '../search-results/search-results';
 
 import './search-form.styles.scss';
 
@@ -24,7 +24,7 @@ export default class SearchForm extends Component {
       this.setState({ search: e.target.value }, () =>
         axios
           .get(`/navbar/search/${this.state.search}`)
-          .then(({ data }) => this.setState({ results: data }, () => console.log(this.state)))
+          .then(({ data }) => this.setState({ results: data }))
           .catch(err => console.log(err)))
     } else {
       this.setState({
