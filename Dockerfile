@@ -1,5 +1,5 @@
 FROM node:current-slim
-WORKDIR /nav-bar-service
+WORKDIR /usr/src/nav-bar-service
 COPY . .
 RUN yarn install
 EXPOSE 3001
